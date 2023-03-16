@@ -1,0 +1,29 @@
+Started by user admin
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/http-test-01
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/http-test-01/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/kav76/jenkins_lab.git # timeout=10
+Fetching upstream changes from https://github.com/kav76/jenkins_lab.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+ > git fetch --tags --force --progress -- https://github.com/kav76/jenkins_lab.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision c1f2dff09fb267c2f0995983ea071af9ddf27df1 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c1f2dff09fb267c2f0995983ea071af9ddf27df1 # timeout=10
+Commit message: "Update index.html"
+ > git rev-list --no-walk c1f2dff09fb267c2f0995983ea071af9ddf27df1 # timeout=10
+[http-test-01] $ /bin/sh -xe /tmp/jenkins7656927045669450727.sh
++ docker run --name jenkins-lab-ngx --rm -p 9889:80 -v /var/lib/jenkins/workspace/http-test-01:/usr/share/nginx/html:ro -d nginx
+27cf778fead749abb0e825cb8a6c4efd5a7560e12d2b91cf27cf6eb185666706
+[http-test-01] $ /bin/sh -xe /tmp/jenkins8346729704966714430.sh
++ /opt/jenkins_lab/test-response.sh
+[http-test-01] $ /bin/sh -xe /tmp/jenkins6800693467549751278.sh
++ /opt/jenkins_lab/test-md5.sh
+Stopping all containers
+[Slack Notifications] found #49 as previous completed, non-aborted build
+[Slack Notifications] will send OnBackToNormalNotification because build matches and user preferences allow it
+Finished: SUCCESS
